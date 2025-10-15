@@ -870,11 +870,6 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> with WidgetsBin
                         onYesPressed: () async {
                           await orderController.updateOrderStatus(widget.orderId, AppConstants.confirmed, back: true, fromNotification: true);
 
-                          // move to processing if time selected
-                          if(_selectedProcessingTime != null && _selectedProcessingTime!.isNotEmpty) {
-                            await Get.find<OrderController>().updateOrderStatus(order.id, AppConstants.processing, processingTime: _selectedProcessingTime);
-                          }
-
                           // invoice auto print
                           Get.find<OrderController>().getOrderDetails(widget.orderId).then((value) async{
 
@@ -988,11 +983,6 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> with WidgetsBin
                           controllerOrderModel.id,
                           AppConstants.processing,
                           processingTime: _selectedProcessingTime
-                      );
-
-                      await Get.find<OrderController>().updateOrderStatus(
-                          controllerOrderModel.id,
-                          AppConstants.handover
                       );
 
                       Get.find<ProfileController>().getProfile();
