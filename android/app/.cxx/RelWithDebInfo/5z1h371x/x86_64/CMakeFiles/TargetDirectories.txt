@@ -1,0 +1,2 @@
+/Users/6amtech/Projects/6amMart-Store-App/android/app/.cxx/RelWithDebInfo/5z1h371x/x86_64/CMakeFiles/edit_cache.dir
+/Users/6amtech/Projects/6amMart-Store-App/android/app/.cxx/RelWithDebInfo/5z1h371x/x86_64/CMakeFiles/rebuild_cache.dir

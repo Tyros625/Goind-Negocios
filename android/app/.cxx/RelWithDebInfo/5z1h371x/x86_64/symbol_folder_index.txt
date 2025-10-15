@@ -1,0 +1,1 @@
+/Users/6amtech/Projects/6amMart-Store-App/build/app/intermediates/cxx/RelWithDebInfo/5z1h371x/obj/x86_64

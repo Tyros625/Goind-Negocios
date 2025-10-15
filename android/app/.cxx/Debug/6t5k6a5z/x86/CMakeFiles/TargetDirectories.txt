@@ -1,0 +1,2 @@
+/Users/asif/Desktop/6am_Git/6amMart-Store-App/android/app/.cxx/Debug/6t5k6a5z/x86/CMakeFiles/edit_cache.dir
+/Users/asif/Desktop/6am_Git/6amMart-Store-App/android/app/.cxx/Debug/6t5k6a5z/x86/CMakeFiles/rebuild_cache.dir

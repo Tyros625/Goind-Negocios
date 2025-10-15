@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "252907239197",
+    "project_id": "goind-delivery",
+    "storage_bucket": "goind-delivery.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252907239197:android:5051c9e6a983f2860f13f4",
+        "android_client_info": {
+          "package_name": "es.goind.delivery"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBo3YqhZDw2Nvx5ZBM8NoajwbjLHNTLjAE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252907239197:android:62cbcb41e43c74a40f13f4",
+        "android_client_info": {
+          "package_name": "es.goind.goind"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBo3YqhZDw2Nvx5ZBM8NoajwbjLHNTLjAE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252907239197:android:bccf33fd77abfd130f13f4",
+        "android_client_info": {
+          "package_name": "es.goind.tienda"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBo3YqhZDw2Nvx5ZBM8NoajwbjLHNTLjAE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
