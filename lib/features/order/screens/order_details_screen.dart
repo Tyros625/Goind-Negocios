@@ -987,6 +987,50 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> with WidgetsBin
 
                       Get.find<ProfileController>().getProfile();
                       Get.find<OrderController>().getCurrentOrders();
+
+                      // Auto print receipt after updating to processing
+                      Get.find<OrderController>().getOrderDetails(widget.orderId).then((value) async{
+                        await Get.find<OrderController>().getOrderItemsDetails(widget.orderId);
+                        final SplashController splashController = Get.find();
+                        final OrderController oc = Get.find();
+
+                        String? savedMacAddress = splashController.getBluetoothAddress();
+                        bool currentlyConnectedInSavedPrinter = false;
+                        OrderModel? processingOrder = oc.orderModel;
+                        bool isRx = false;
+                        double processingDmTips = 0.0;
+                        if(processingOrder?.orderType == 'delivery') {
+                          processingDmTips = processingOrder?.dmTips ?? 0.0;
+                          isRx = processingOrder?.prescriptionOrder ?? false;
+                        }
+
+                        if(savedMacAddress?.isNotEmpty ?? false){
+                          currentlyConnectedInSavedPrinter = await InvoicePrintHelper.checkConnectionStatus();
+
+                          if(!currentlyConnectedInSavedPrinter) {
+                            bool reconnected = await InvoicePrintHelper.attemptReconnection(savedMacAddress!);
+                            if(reconnected) {
+                              currentlyConnectedInSavedPrinter = true;
+                            } else {
+                                print('Failed to reconnect to printer');
+                            }
+                          }
+                        }
+
+                        allowPermission().then((access) {
+                          Get.dialog(Dialog(
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(Dimensions.radiusSmall)),
+                            insetPadding: const EdgeInsets.all(Dimensions.paddingSizeSmall),
+                            child: InVoicePrintScreen(
+                              order : processingOrder,
+                              dmTips: processingDmTips,
+                              isPrescriptionOrder: isRx,
+                              orderDetails: oc.orderDetailsModel,
+                              currentlyConnectedInSavedPrinter : currentlyConnectedInSavedPrinter,
+                            ),
+                          ));
+                        });
+                      });
                     },
                   )),
                   const SizedBox(width: Dimensions.paddingSizeSmall),
@@ -1111,6 +1155,50 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> with WidgetsBin
                           if(success) {
                             Get.find<ProfileController>().getProfile();
                             Get.find<OrderController>().getCurrentOrders();
+
+                            // Auto print receipt after updating to processing
+                            Get.find<OrderController>().getOrderDetails(widget.orderId).then((value) async{
+                              await Get.find<OrderController>().getOrderItemsDetails(widget.orderId);
+                              final SplashController splashController = Get.find();
+                              final OrderController oc = Get.find();
+
+                              String? savedMacAddress = splashController.getBluetoothAddress();
+                              bool currentlyConnectedInSavedPrinter = false;
+                              OrderModel? processingOrder = oc.orderModel;
+                              bool isRx = false;
+                              double processingDmTips = 0.0;
+                              if(processingOrder?.orderType == 'delivery') {
+                                processingDmTips = processingOrder?.dmTips ?? 0.0;
+                                isRx = processingOrder?.prescriptionOrder ?? false;
+                              }
+
+                              if(savedMacAddress?.isNotEmpty ?? false){
+                                currentlyConnectedInSavedPrinter = await InvoicePrintHelper.checkConnectionStatus();
+
+                                if(!currentlyConnectedInSavedPrinter) {
+                                  bool reconnected = await InvoicePrintHelper.attemptReconnection(savedMacAddress!);
+                                  if(reconnected) {
+                                    currentlyConnectedInSavedPrinter = true;
+                                  } else {
+                                      print('Failed to reconnect to printer');
+                                  }
+                                }
+                              }
+
+                              allowPermission().then((access) {
+                                Get.dialog(Dialog(
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(Dimensions.radiusSmall)),
+                                  insetPadding: const EdgeInsets.all(Dimensions.paddingSizeSmall),
+                                  child: InVoicePrintScreen(
+                                    order : processingOrder,
+                                    dmTips: processingDmTips,
+                                    isPrescriptionOrder: isRx,
+                                    orderDetails: oc.orderDetailsModel,
+                                    currentlyConnectedInSavedPrinter : currentlyConnectedInSavedPrinter,
+                                  ),
+                                ));
+                              });
+                            });
                           }
                         });
                     }
