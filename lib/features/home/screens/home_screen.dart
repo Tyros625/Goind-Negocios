@@ -3,13 +3,11 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:sixam_mart_store/features/auth/controllers/auth_controller.dart';
-import 'package:sixam_mart_store/features/home/widgets/ads_section_widget.dart';
 import 'package:sixam_mart_store/features/notification/controllers/notification_controller.dart';
 import 'package:sixam_mart_store/features/order/controllers/order_controller.dart';
 import 'package:sixam_mart_store/features/profile/controllers/profile_controller.dart';
 import 'package:sixam_mart_store/features/splash/controllers/splash_controller.dart';
 import 'package:sixam_mart_store/features/order/domain/models/order_model.dart';
-import 'package:sixam_mart_store/helper/price_converter_helper.dart';
 import 'package:sixam_mart_store/helper/route_helper.dart';
 import 'package:sixam_mart_store/util/app_constants.dart';
 import 'package:sixam_mart_store/util/dimensions.dart';
@@ -186,21 +184,7 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         child: GetBuilder<ProfileController>(builder: (profileController) {
           return GetBuilder<OrderController>(builder: (orderController) {
-            bool isEnableTemporarilyClosed = false;
-
-            if(orderController.runningOrders != null) {
-              for(int i = 0; i < orderController.runningOrders!.length; i++) {
-                if(orderController.runningOrders?[i].status == 'confirmed' || orderController.runningOrders?[i].status == 'cooking'
-                    || orderController.runningOrders?[i].status == 'ready_for_handover' || orderController.runningOrders?[i].status == 'food_on_the_way') {
-                  if(orderController.runningOrders![i].orderList.isNotEmpty) {
-                    isEnableTemporarilyClosed = true;
-                    break;
-                  }else {
-                    isEnableTemporarilyClosed = false;
-                  }
-                }
-              }
-            }
+            // Removed unused variable isEnableTemporarilyClosed
 
             List<OrderModel> orderList = [];
             if(orderController.runningOrders != null) {

@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sixam_mart_store/common/models/config_model.dart';
@@ -172,11 +171,15 @@ class _AddBannerScreenState extends State<AddBannerScreen> with TickerProviderSt
                       ),
                       child: Column(children: [
 
-                        DottedBorder(
-                          color: Theme.of(context).disabledColor.withValues(alpha: 0.5),
-                          strokeWidth: 1,
-                          borderType: BorderType.RRect,
-                          radius: const Radius.circular(Dimensions.radiusSmall),
+                        Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Theme.of(context).disabledColor.withValues(alpha: 0.5),
+                              width: 1,
+                              style: BorderStyle.solid,
+                            ),
+                            borderRadius: BorderRadius.circular(Dimensions.radiusSmall),
+                          ),
                           child: SizedBox(
                             height: 125, width: Get.width,
                             child: Align(

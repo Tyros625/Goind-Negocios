@@ -209,12 +209,13 @@ class OrderController extends GetxController implements GetxService {
     getPaginatedOrders(1, true);
   }
 
-  Future<bool> updateOrderStatus(int? orderID, String status, {bool back = false, String? reason, String? processingTime, bool fromNotification = false}) async {
+  Future<bool> updateOrderStatus(int? orderID, String status, {bool back = false, String? reason, String? processingTime, bool fromNotification = false, double? amountReceived, double? changeAmount}) async {
     _isLoading = true;
     update();
     List<MultipartBody> pickedPrescriptions = orderServiceInterface.processMultipartData(_pickedPrescriptions);
     UpdateStatusBodyModel updateStatusBody = UpdateStatusBodyModel(
       orderId: orderID, status: status, otp: status == 'delivered' ? _otp : null, processingTime: processingTime, reason: reason,
+      amountReceived: amountReceived, changeAmount: changeAmount,
     );
     ResponseModel responseModel = await orderServiceInterface.updateOrderStatus(updateStatusBody, pickedPrescriptions);
     Get.back(result: responseModel.isSuccess);

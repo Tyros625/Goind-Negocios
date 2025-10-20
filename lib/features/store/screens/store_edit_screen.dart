@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:country_code_picker/country_code_picker.dart';
-import 'package:dotted_border/dotted_border.dart';
 import 'package:phone_numbers_parser/phone_numbers_parser.dart';
 import 'package:sixam_mart_store/common/widgets/custom_asset_image_widget.dart';
 import 'package:sixam_mart_store/common/widgets/custom_card.dart';
@@ -260,14 +259,15 @@ class _StoreEditScreenState extends State<StoreEditScreen> with TickerProviderSt
                       bottom: 0, right: 0, top: 0, left: 0,
                       child: InkWell(
                         onTap: () => storeController.pickImage(true, false),
-                        child: DottedBorder(
-                          color: Theme.of(context).hintColor,
-                          strokeWidth: 1,
-                          strokeCap: StrokeCap.butt,
-                          dashPattern: const [5, 5],
-                          padding: const EdgeInsets.all(0),
-                          borderType: BorderType.RRect,
-                          radius: const Radius.circular(Dimensions.radiusDefault),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Theme.of(context).hintColor,
+                              width: 1,
+                              style: BorderStyle.solid,
+                            ),
+                            borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
+                          ),
                           child: const SizedBox(width: 120, height: 120),
                         ),
                       ),
@@ -345,14 +345,15 @@ class _StoreEditScreenState extends State<StoreEditScreen> with TickerProviderSt
                         bottom: 0, right: 0, top: 0, left: 0,
                         child: InkWell(
                           onTap: () => storeController.pickImage(false, false),
-                          child: DottedBorder(
-                            color: Theme.of(context).hintColor,
-                            strokeWidth: 1,
-                            strokeCap: StrokeCap.butt,
-                            dashPattern: const [5, 5],
-                            padding: const EdgeInsets.all(0),
-                            borderType: BorderType.RRect,
-                            radius: const Radius.circular(Dimensions.radiusDefault),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Theme.of(context).hintColor,
+                                width: 1,
+                                style: BorderStyle.solid,
+                              ),
+                              borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
+                            ),
                             child: SizedBox(width: context.width, height: 140),
                           ),
                         ),
@@ -471,12 +472,15 @@ class _StoreEditScreenState extends State<StoreEditScreen> with TickerProviderSt
                       bottom: 0, right: 0, top: 0, left: 0,
                       child: InkWell(
                         onTap: () => storeController.pickMetaImage(),
-                        child: DottedBorder(
-                          borderType: BorderType.RRect,
-                          radius: const Radius.circular(Dimensions.radiusDefault),
-                          dashPattern: const [8, 4],
-                          strokeWidth: 1,
-                          color: Theme.of(context).hintColor,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Theme.of(context).hintColor,
+                              width: 1,
+                              style: BorderStyle.solid,
+                            ),
+                            borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
+                          ),
                           child: const SizedBox(width: 120, height: 120),
                         ),
                       ),

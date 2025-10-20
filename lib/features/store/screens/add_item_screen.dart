@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:image_picker/image_picker.dart';
@@ -1500,12 +1499,15 @@ class _AddItemScreenState extends State<AddItemScreen> with TickerProviderStateM
                           bottom: 0, right: 0, top: 0, left: 0,
                           child: InkWell(
                             onTap: () => storeController.pickImage(true, false),
-                            child: DottedBorder(
-                              borderType: BorderType.RRect,
-                              radius: const Radius.circular(Dimensions.radiusDefault),
-                              dashPattern: const [8, 4],
-                              strokeWidth: 1,
-                              color: Theme.of(context).primaryColor.withValues(alpha: 0.5),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Theme.of(context).primaryColor.withValues(alpha: 0.5),
+                                  width: 1,
+                                  style: BorderStyle.solid,
+                                ),
+                                borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
+                              ),
                               child: const SizedBox(height: 150, width: 150),
                             ),
                           ),
@@ -1562,12 +1564,15 @@ class _AddItemScreenState extends State<AddItemScreen> with TickerProviderStateM
                                 showCustomSnackBar('maximum_image_limit_is_6'.tr);
                               }
                             },
-                            child: DottedBorder(
-                              borderType: BorderType.RRect,
-                              radius: const Radius.circular(Dimensions.radiusDefault),
-                              dashPattern: const [8, 4],
-                              strokeWidth: 1,
-                              color: Theme.of(context).primaryColor.withValues(alpha: 0.5),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Theme.of(context).primaryColor.withValues(alpha: 0.5),
+                                  width: 1,
+                                  style: BorderStyle.solid,
+                                ),
+                                borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
+                              ),
                               child: Container(
                                 width: context.width, height: context.width,
                                 decoration: BoxDecoration(
@@ -1591,12 +1596,15 @@ class _AddItemScreenState extends State<AddItemScreen> with TickerProviderStateM
                             ),
                           );
                         }
-                        return DottedBorder(
-                          borderType: BorderType.RRect,
-                          radius: const Radius.circular(Dimensions.radiusDefault),
-                          dashPattern: const [8, 4],
-                          strokeWidth: 1,
-                          color: Theme.of(context).primaryColor.withValues(alpha: 0.5),
+                        return Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Theme.of(context).primaryColor.withValues(alpha: 0.5),
+                              width: 1,
+                              style: BorderStyle.solid,
+                            ),
+                            borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
+                          ),
                           child: Stack(children: [
 
                             ClipRRect(

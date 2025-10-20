@@ -1,5 +1,4 @@
 import 'dart:developer';
-import 'dart:typed_data';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -178,7 +177,7 @@ class _InvoiceDialogWidgetState extends State<InvoiceDialogWidget> {
                         Row(
                           children: [
                             Text('delivery_address'.tr, style: robotoBold.copyWith(fontSize: fontSize)),
-                            Expanded(child: Text(' : ${widget.order?.deliveryAddress?.address}' ?? '', style: robotoRegular.copyWith(fontSize: fontSize), textAlign: TextAlign.end)),
+                            Expanded(child: Text(' : ${widget.order?.deliveryAddress?.address ?? ''}', style: robotoRegular.copyWith(fontSize: fontSize), textAlign: TextAlign.end)),
                           ],
                         ),
 

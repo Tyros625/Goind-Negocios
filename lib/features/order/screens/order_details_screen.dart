@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:io';
-import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/foundation.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -662,14 +661,15 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> with WidgetsBin
                     child: Divider(thickness: 1, color: Theme.of(context).hintColor.withValues(alpha: 0.5)),
                   ),
 
-                  order.paymentMethod == 'partial_payment' ? DottedBorder(
-                    color: Theme.of(context).primaryColor,
-                    strokeWidth: 1,
-                    strokeCap: StrokeCap.butt,
-                    dashPattern: const [8, 5],
-                    padding: const EdgeInsets.all(0),
-                    borderType: BorderType.RRect,
-                    radius: const Radius.circular(Dimensions.radiusDefault),
+                  order.paymentMethod == 'partial_payment' ? Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Theme.of(context).primaryColor,
+                        width: 1,
+                        style: BorderStyle.solid,
+                      ),
+                      borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
+                    ),
                     child: Ink(
                       padding: const EdgeInsets.all(Dimensions.paddingSizeSmall),
                       color: restConfModel ? Theme.of(context).primaryColor.withValues(alpha: 0.05) : Colors.transparent,

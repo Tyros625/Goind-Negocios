@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:country_code_picker/country_code_picker.dart';
-import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -267,14 +266,15 @@ class _StoreRegistrationScreenState extends State<StoreRegistrationScreen> with 
                                         bottom: 0, right: 0, top: 0, left: 0,
                                         child: InkWell(
                                           onTap: () => authController.pickImageForReg(true, false),
-                                          child: DottedBorder(
-                                            color: Theme.of(context).primaryColor,
-                                            strokeWidth: 1,
-                                            strokeCap: StrokeCap.butt,
-                                            dashPattern: const [5, 5],
-                                            padding: const EdgeInsets.all(0),
-                                            borderType: BorderType.RRect,
-                                            radius: const Radius.circular(Dimensions.radiusDefault),
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: Theme.of(context).primaryColor,
+                                                width: 1,
+                                                style: BorderStyle.solid,
+                                              ),
+                                              borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
+                                            ),
                                             child: Center(
                                               child: Visibility(
                                                 visible: authController.pickedLogo != null,
@@ -343,14 +343,15 @@ class _StoreRegistrationScreenState extends State<StoreRegistrationScreen> with 
                                         bottom: 0, right: 0, top: 0, left: 0,
                                         child: InkWell(
                                           onTap: () => authController.pickImageForReg(false, false),
-                                          child: DottedBorder(
-                                            color: Theme.of(context).primaryColor,
-                                            strokeWidth: 1,
-                                            strokeCap: StrokeCap.butt,
-                                            dashPattern: const [5, 5],
-                                            padding: const EdgeInsets.all(0),
-                                            borderType: BorderType.RRect,
-                                            radius: const Radius.circular(Dimensions.radiusDefault),
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: Theme.of(context).primaryColor,
+                                                width: 1,
+                                                style: BorderStyle.solid,
+                                              ),
+                                              borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
+                                            ),
                                             child: Center(
                                               child: Visibility(
                                                 visible: authController.pickedCover != null,
@@ -525,12 +526,15 @@ class _StoreRegistrationScreenState extends State<StoreRegistrationScreen> with 
                                 },
                                 child: Padding(
                                   padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeExtraLarge),
-                                  child: DottedBorder(
-                                    borderType: BorderType.RRect,
-                                    radius: const Radius.circular(Dimensions.radiusDefault),
-                                    dashPattern: const [8, 4],
-                                    strokeWidth: 1,
-                                    color: Get.isDarkMode ? Colors.white.withValues(alpha: 0.2) : const Color(0xFFE5E5E5),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                        color: Theme.of(context).primaryColor,
+                                        width: 1,
+                                        style: BorderStyle.solid,
+                                      ),
+                                      borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
+                                    ),
                                     child: Container(
                                       height: 120,
                                       width: double.infinity,
@@ -567,12 +571,15 @@ class _StoreRegistrationScreenState extends State<StoreRegistrationScreen> with 
                                 ),
                               ) : Padding(
                                 padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeExtraLarge),
-                                child: DottedBorder(
-                                  borderType: BorderType.RRect,
-                                  radius: const Radius.circular(Dimensions.radiusDefault),
-                                  dashPattern: const [8, 4],
-                                  strokeWidth: 1,
-                                  color: const Color(0xFFE5E5E5),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: Theme.of(context).primaryColor,
+                                      width: 1,
+                                      style: BorderStyle.solid,
+                                    ),
+                                    borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
+                                  ),
                                   child: SizedBox(
                                     width: double.infinity,
                                     child: Stack(
@@ -686,12 +693,15 @@ class _StoreRegistrationScreenState extends State<StoreRegistrationScreen> with 
                                         onTap: () {
                                           authController.pickFiles();
                                         },
-                                        child: DottedBorder(
-                                          borderType: BorderType.RRect,
-                                          radius: const Radius.circular(Dimensions.radiusDefault),
-                                          dashPattern: const [8, 4],
-                                          strokeWidth: 1,
-                                          color: Get.isDarkMode ? Colors.white.withValues(alpha: 0.2) : const Color(0xFFE5E5E5),
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            border: Border.all(
+                                              color: Theme.of(context).primaryColor,
+                                              width: 1,
+                                              style: BorderStyle.solid,
+                                            ),
+                                            borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
+                                          ),
                                           child: Container(
                                             height: 150,
                                             width: double.infinity,
@@ -727,12 +737,15 @@ class _StoreRegistrationScreenState extends State<StoreRegistrationScreen> with 
                                         ),
                                       );
                                     }
-                                    return DottedBorder(
-                                      borderType: BorderType.RRect,
-                                      radius: const Radius.circular(Dimensions.radiusDefault),
-                                      dashPattern: const [8, 4],
-                                      strokeWidth: 1,
-                                      color: const Color(0xFFE5E5E5),
+                                    return Container(
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                          color: Theme.of(context).primaryColor,
+                                          width: 1,
+                                          style: BorderStyle.solid,
+                                        ),
+                                        borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
+                                      ),
                                       child: SizedBox(
                                         width: double.infinity,
                                         child: Stack(

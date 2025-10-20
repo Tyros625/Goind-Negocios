@@ -1,4 +1,3 @@
-import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sixam_mart_store/util/styles.dart';
@@ -14,12 +13,15 @@ class DottedVideoBorder extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      child: DottedBorder(
-        dashPattern: const [8, 4],
-        strokeWidth: 1,
-        borderType: BorderType.RRect,
-        color: showErrorBorder ? Theme.of(context).colorScheme.error : Theme.of(context).primaryColor,
-        radius: const Radius.circular(10),
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: showErrorBorder ? Theme.of(context).colorScheme.error : Theme.of(context).primaryColor,
+            width: 1,
+            style: BorderStyle.solid,
+          ),
+          borderRadius: BorderRadius.circular(10),
+        ),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
